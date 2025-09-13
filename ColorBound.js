@@ -2,8 +2,8 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 //Player:
-let x = 400;
-let y = 400;
+let x = 425;
+let y = 425;
 const size = 15;
 const speed = 5;
 let color = "white"
@@ -63,7 +63,8 @@ function update() {
     for (let q of quadrants) {
         if (color !== q.color){
             if (isColliding(x, y, size, q.x, q.y, q.size)) {
-                gameState = "dead"
+                x = 425;
+                y = 425;
             }
         }
     }
