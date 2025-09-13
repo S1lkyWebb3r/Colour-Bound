@@ -9,23 +9,33 @@ const speed = 5;
 let color = "white"
 
 //Quadrants
-let quadrants = [
-    {x: 0, y: 0, size: 50, color: "red"},
-    {x: 50, y: 0, size: 50, color: "red"},
-    {x: 100, y: 0, size: 50, color: "red"},
-    {x: 150, y: 0, size: 50, color: "red"},
-    {x: 200, y: 0, size: 50, color: "red"},
-    {x: 250, y: 0, size: 50, color: "red"},
-    {x: 300, y: 0, size: 50, color: "red"},
-    {x: 350, y: 0, size: 50, color: "red"},
-    {x: 400, y: 0, size: 50, color: "red"},
-    {x: 0, y: 50, size: 50, color: "red"},
-    {x: 0, y: 100, size: 50, color: "red"},
-    {x: 0, y: 150, size: 50, color: "red"},
-    {x: 0, y: 200, size: 50, color: "red"},
-    {x: 0, y: 250, size: 50, color: "red"},
-    {x: 0, y: 300, size: 50, color: "red"},
-]
+let quadrants = [];
+const quadSize = 50;
+const rows = Math.floor(canvas.height / quadSize);
+const cols = Math.floor(canvas.width / quadSize);
+
+for (let row = 0; row < rows; row++) {
+  for (let col = 0; col < cols; col++) {
+    quadrants.push({
+      x: col * quadSize,
+      y: row * quadSize,
+      size: quadSize,
+      color: "red" // default
+    });
+  }
+}
+
+//Color Picker:
+// helper function to get a square by row/col
+function getQuadrant(row, col) {
+  return quadrants[row * cols + col];
+}
+
+// Hand-pick colors
+getQuadrant(0, 0).color = "yellow";   // top-left
+getQuadrant(2, 3).color = "blue";     // row 2, col 3
+getQuadrant(5, 7).color = "green";    // row 5, col 7
+
 
 //Gamestate (playing, paused, dead, starting)
 let gameState = "playing"; //change this later
