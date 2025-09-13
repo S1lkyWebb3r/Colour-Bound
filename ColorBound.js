@@ -71,6 +71,12 @@ function update() {
 function draw() {
     ctx.clearRect(0,0, canvas.width, canvas.height);
 
+    //Quadrants
+    for (let q of quadrants) {
+        ctx.fillStyle = q.color;
+        ctx.fillRect(q.x, q.y, q.size, q.size);
+    }
+    
     //player 
     if (gameState !== "dead"){
         ctx.fillStyle = color;
@@ -79,10 +85,6 @@ function draw() {
         ctx.strokeStyle = "black";      // Outline color
         ctx.lineWidth = 2;              // Outline thickness (optional)
         ctx.strokeRect(x, y, size - 2, size - 2); // Draw outline
-    }
-    for (let q of quadrants) {
-        ctx.fillStyle = q.color;
-        ctx.fillRect(q.x, q.y, q.size, q.size);
     }
 }
 
