@@ -2,8 +2,8 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 //Player:
-let x = 425;
-let y = 425;
+let x = 410;
+let y = 410;
 const size = 15;
 const speed = 5;
 let color = "white"
@@ -36,6 +36,10 @@ getQuadrant(0, 0).color = "yellow";   // top-left
 getQuadrant(2, 3).color = "blue";     // row 2, col 3
 getQuadrant(5, 7).color = "green";    // row 5, col 7
 getQuadrant(8, 8).color = "white";
+getQuadrant(8, 7).color = "white";
+getQuadrant(8, 6).color = "white";
+getQuadrant(8, 5).color = "white";
+getQuadrant(8, 4).color = "white";
 
 
 //Gamestate (playing, paused, dead, starting)
@@ -63,8 +67,9 @@ function update() {
     for (let q of quadrants) {
         if (color !== q.color){
             if (isColliding(x, y, size, q.x, q.y, q.size)) {
-                x = 425;
-                y = 425;
+                x = 410;
+                y = 410;
+                color = "white"
             }
         }
     }
