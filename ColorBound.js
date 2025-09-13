@@ -1,14 +1,30 @@
 //Canvas
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
+//Player:
 let x = 400;
 let y = 400;
 const size = 15;
 const speed = 5;
 let color = "white"
+
 //Quadrants
 let quadrants = [
-    {x: 0, y: 0, size: 60, color: "red"}
+    {x: 0, y: 0, size: 50, color: "red"},
+    {x: 50, y: 0, size: 50, color: "red"},
+    {x: 100, y: 0, size: 50, color: "red"},
+    {x: 150, y: 0, size: 50, color: "red"},
+    {x: 200, y: 0, size: 50, color: "red"},
+    {x: 250, y: 0, size: 50, color: "red"},
+    {x: 300, y: 0, size: 50, color: "red"},
+    {x: 350, y: 0, size: 50, color: "red"},
+    {x: 400, y: 0, size: 50, color: "red"},
+    {x: 0, y: 50, size: 50, color: "red"},
+    {x: 0, y: 100, size: 50, color: "red"},
+    {x: 0, y: 150, size: 50, color: "red"},
+    {x: 0, y: 200, size: 50, color: "red"},
+    {x: 0, y: 250, size: 50, color: "red"},
+    {x: 0, y: 300, size: 50, color: "red"},
 ]
 
 //Gamestate (playing, paused, dead, starting)
@@ -34,7 +50,7 @@ function update() {
 
     //Death check:
     for (let q of quadrants) {
-        if (color === q.color){
+        if (color !== q.color){
             if (isColliding(x, y, size, q.x, q.y, q.size)) {
                 gameState = "dead"
             }
