@@ -3,7 +3,7 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 //Player:
 let x = 410;
-let y = 410;
+let y = 560;
 const size = 15;
 const speed = 5;
 let color = "white"
@@ -40,6 +40,9 @@ getQuadrant(8, 7).color = "white";
 getQuadrant(8, 6).color = "white";
 getQuadrant(8, 5).color = "white";
 getQuadrant(8, 4).color = "white";
+getQuadrant(9, 8).color = "white";
+getQuadrant(10, 8).color = "white";
+getQuadrant(11, 8).color = "white";
 
 
 //Gamestate (playing, paused, dead, starting)
