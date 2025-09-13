@@ -35,6 +35,7 @@ function getQuadrant(row, col) {
 getQuadrant(0, 0).color = "yellow";   // top-left
 getQuadrant(2, 3).color = "blue";     // row 2, col 3
 getQuadrant(5, 7).color = "green";    // row 5, col 7
+getQuadrant(8, 8).color = "white";
 
 
 //Gamestate (playing, paused, dead, starting)
