@@ -12,7 +12,7 @@ let quadrants = [
 ]
 
 //Gamestate (playing, paused, dead, starting)
-let gameState = "starting";
+let gameState = "playing"; //change this later
 //Keys
 const keys = {};
 document.addEventListener("keydown", (e) => keys[e.code] = true);
@@ -30,20 +30,20 @@ function update() {
     if (keys["ArrowUp"]) y += -speed;
     if (keys["ArrowDown"]) y += speed;
     if (keys["ArrowLeft"]) x += -speed;
-    if (keys["ArrowUp"]) x += speed;
+    if (keys["ArrowRight"]) x += speed;
 
     //Death check:
     for (let q of quadrants) {
         if (color === q.color){
             if (isColliding(x, y, size, q.x, q.y, q.size)) {
-                gamestate = "dead"
+                gameState = "dead"
             }
         }
     }
 }
 
 function draw() {
-    ctx.clearRect(0,0, canvas.Width, canvas.height);
+    ctx.clearRect(0,0, canvas.width, canvas.height);
 
     //player 
     if (gameState !== "dead"){
